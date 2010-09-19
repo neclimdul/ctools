@@ -21,19 +21,13 @@
  *   stored; primarily this is used to prevent collisions.
  * @param $name
  *   The name of the object being stored.
- * @param $skip_cache
- *   Skip the memory cache, meaning this must be read from the db again.
  *
- * @deprecated $skip_cache is deprecated in favor of drupal_static*
  * @return
  *   The data that was cached.
  */
-function ctools_object_cache_get($obj, $name, $skip_cache = FALSE) {
+function ctools_object_cache_get($obj, $name) {
   $cache = &drupal_static(__FUNCTION__, array());
   $key = "$obj:$name";
-  if ($skip_cache) {
-    unset($cache[$key]);
-  }
 
   if (!array_key_exists($key, $cache)) {
     $data = db_query('SELECT * FROM {ctools_object_cache} WHERE sid = :session_id AND obj = :object AND name = :name', array(':session_id' => session_id(), ':object' => $obj, ':name' => $name))

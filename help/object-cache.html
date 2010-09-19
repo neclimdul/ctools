@@ -21,13 +21,11 @@ ctools_include('object-cache');
  *   stored; primarily this is used to prevent collisions.
  * @param $name
  *   The name of the object being stored.
- * @param $skip_cache
- *   Skip the memory cache, meaning this must be read from the db again.
  *
  * @return
  *   The data that was cached.
  */
-function ctools_object_cache_get($obj, $name, $skip_cache = FALSE) {
+function ctools_object_cache_get($obj, $name) {
 </pre>
 
 <pre>

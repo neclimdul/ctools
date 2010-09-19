@@ -1,5 +1,7 @@
 Upgrading from ctools-6.x-1.x to ctools-7.x-2.x:
 
+  - $skip_cache parameter of ctools_object_cache_get removed in favor of
+    calls to drupal_static_reset();
   - All calls to the ctools_ajax_command_prepend() should be replace with 
     the core function ajax_command_prepend();
 
